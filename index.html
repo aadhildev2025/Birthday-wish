@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday to My Wife, Goundoos | From Your Devoted Husband</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            babypink: {
+              50: '#fff0f5',
+              100: '#ffe4ec',
+              200: '#ffd1dc',
+              300: '#fea3c1',
+              400: '#f48fb1',
+              500: '#ec4899',
+            },
+            skyblue: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+            },
+            champagne: '#fbf4ea',
+            rosegold: '#e5b2b8',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'floatSlow 6s ease-in-out infinite',
+            'float-gentle': 'floatGentle 4s ease-in-out infinite',
+            'flicker': 'candleFlicker 1.3s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            floatSlow: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            floatGentle: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' },
+            },
+            candleFlicker: {
+              '0%': { transform: 'scale(1) skewX(0deg)', opacity: '0.95', filter: 'drop-shadow(0 0 10px rgba(253, 224, 71, 0.9))' },
+              '35%': { transform: 'scale(1.06, 0.96) skewX(1.8deg)', opacity: '1', filter: 'drop-shadow(0 0 15px rgba(249, 115, 22, 0.95))' },
+              '70%': { transform: 'scale(0.95, 1.04) skewX(-1.5deg)', opacity: '0.9', filter: 'drop-shadow(0 0 12px rgba(253, 224, 71, 0.85))' },
+              '100%': { transform: 'scale(1.02, 0.98) skewX(0.8deg)', opacity: '1', filter: 'drop-shadow(0 0 16px rgba(251, 146, 60, 0.95))' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff1f6 0%, #ffffff 50%, #eef7ff 100%);
+    }
+
+    .frosted-glass {
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 40px -10px rgba(186, 230, 253, 0.35), 0 10px 22px -6px rgba(255, 209, 220, 0.32);
+    }
+
+    @keyframes smokeRise {
+      0% { opacity: 0.85; transform: translate(-50%, 0) scale(1); }
+      50% { opacity: 0.45; transform: translate(-42%, -25px) scale(1.6); }
+      100% { opacity: 0; transform: translate(-58%, -50px) scale(2.2); }
+    }
+    .smoke-puff {
+      display: block !important;
+      animation: smokeRise 1.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-700 min-h-screen relative overflow-x-hidden selection:bg-babypink-200 selection:text-babypink-500">
+
+  <!-- Interactive Floating Background Canvas (Baby Pink & Sky Blue Hearts/Petals) -->
+  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0 w-full h-full"></canvas>
+
+  <!-- Gentle Audio Serenade Toggle -->
+  <aside aria-label="Audio controls" class="fixed top-5 right-5 z-50">
+    <button id="audioToggleBtn" class="flex items-center gap-2 px-4 py-2 rounded-full frosted-glass hover:bg-white/90 transition-all duration-300 text-xs tracking-wider uppercase font-medium text-slate-700 shadow-sm border border-babypink-200 hover:scale-105 active:scale-95" title="Toggle romantic music box">
+      <span id="audioIcon" class="text-babypink-400">🎵</span>
+      <span id="audioLabel">Music Box For My Wife</span>
+    </button>
+  </aside>
+
+  <!-- ==================== 1. HERO SECTION (HUSBAND TO WIFE) ==================== -->
+  <header class="relative min-h-screen flex items-center justify-center px-4 pt-16 pb-12 z-10 text-center">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      
+      <!-- Top Husband Dedication Tag -->
+      <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 backdrop-blur-md border border-babypink-200 shadow-sm mb-6 animate-float-gentle">
+        <span class="w-2.5 h-2.5 rounded-full bg-babypink-400 animate-ping"></span>
+        <span class="text-xs uppercase tracking-widest font-semibold text-slate-600">A Personal Gift From Your Devoted Husband</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-slate-800 tracking-tight leading-tight mb-3">
+        Happy Birthday to <br/>
+        <span class="font-script font-normal text-babypink-400 drop-shadow-sm text-5xl sm:text-7xl md:text-8xl lg:text-9xl">My Darling Wife, Goundoos</span>
+      </h1>
+
+      <!-- Birthdate Subhead -->
+      <p class="font-serif italic text-lg sm:text-2xl md:text-3xl text-slate-600 max-w-2xl mb-4 font-normal">
+        "October 17, 2002 — The day the world became brighter, and my future wife was born."
+      </p>
+
+      <!-- Key Milestone Tagline -->
+      <div class="p-3.5 bg-white/70 backdrop-blur-md rounded-2xl border border-skyblue-200 shadow-sm mb-8 max-w-xl">
+        <p class="text-xs sm:text-sm uppercase tracking-widest font-semibold text-sky-600">
+          💍 Celebrating your first birthday as my wife 💍
+        </p>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <a href="#milestone" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-babypink-300 via-babypink-400 to-skyblue-300 text-white font-medium shadow-md shadow-babypink-200/50 hover:shadow-lg hover:shadow-babypink-300/60 transform hover:-translate-y-0.5 transition duration-300">
+          Open Your Husband's Gift &darr;
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="mt-14 animate-bounce text-slate-400">
+        <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 2. MILESTONE CARD ==================== -->
+  <section id="milestone" class="relative z-10 py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="frosted-glass rounded-3xl p-8 sm:p-14 relative overflow-hidden border border-white">
+        
+        <!-- Soft decorative glow spheres in Baby Pink & Sky Blue -->
+        <div class="absolute -top-16 -right-16 w-56 h-56 bg-babypink-200 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+        <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-skyblue-200 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+        <div class="relative z-10 text-center">
+          <div class="inline-block px-4 py-1.5 rounded-full bg-skyblue-100 text-sky-700 text-xs font-semibold uppercase tracking-wider mb-6">
+            Our First Year as Husband &amp; Wife
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl font-serif font-bold text-slate-800 mb-6">
+            Our First Birthday as One
+          </h2>
+
+          <div class="w-20 h-0.5 bg-gradient-to-r from-babypink-300 to-skyblue-300 mx-auto mb-8"></div>
+
+          <blockquote class="text-xl sm:text-2xl md:text-3xl font-serif italic text-slate-700 leading-relaxed max-w-3xl mx-auto mb-8">
+            “Every year before this, you celebrated as my favorite person. Today, I get the privilege of celebrating you as my life partner and my home. Here’s to chapter one of forever.”
+          </blockquote>
+
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-light">
+            I used to count the days to celebrate your birthday from afar. But today, waking up next to you, seeing your wedding ring catch the morning light, and kissing you as your husband is the highest honor of my life.
+          </p>
+
+          <!-- Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-10 max-w-lg mx-auto">
+            <div class="p-4 rounded-2xl bg-white/70 border border-babypink-100 text-center">
+              <span class="block text-2xl font-bold font-serif text-babypink-400">Oct 17, 2002</span>
+              <span class="text-xs uppercase tracking-wider text-slate-500">The Day You Blessed Earth</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/70 border border-skyblue-100 text-center">
+              <span class="block text-2xl font-bold font-serif text-skyblue-400">Year 01</span>
+              <span class="text-xs uppercase tracking-wider text-slate-500">As My Beautiful Wife</span>
+            </div>
+            <div class="col-span-2 sm:col-span-1 p-4 rounded-2xl bg-white/70 border border-pink-100 text-center">
+              <span class="block text-2xl font-bold font-serif text-babypink-500">Lifetime</span>
+              <span class="text-xs uppercase tracking-wider text-slate-500">My Solemn Vow To You</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. LOVE LETTER FROM HUSBAND ==================== -->
+  <section id="letter" class="relative z-10 py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-widest font-semibold text-babypink-400">Written From the Depths of My Soul</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-800 mt-1">To My Beautiful Wife, Goundoos</h2>
+      </div>
+
+      <!-- Frosted Glass Parchment Card -->
+      <div class="frosted-glass rounded-3xl p-6 sm:p-12 relative shadow-xl border border-white/90">
+        
+        <!-- Wax Seal Badge -->
+        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-tr from-babypink-400 to-rosegold text-white flex items-center justify-center shadow-lg border-2 border-white text-xl font-script font-bold">
+          G
+        </div>
+
+        <div class="pt-4">
+          <p class="font-script text-3xl sm:text-4xl text-babypink-400 mb-6">My Dearest Wife,</p>
+
+          <div class="space-y-4 font-serif text-lg sm:text-xl text-slate-700 leading-relaxed">
+            <p>
+              Happy Birthday, my beloved Goundoos. Sitting down to write this on your first birthday as my wife fills my eyes with happy tears and my heart with profound gratitude. October 17, 2002 was the day God created the woman who would one day become my whole world, my greatest comfort, and my lifelong answered prayer.
+            </p>
+            <p>
+              Being your husband is the highest privilege I will ever possess. In the time we have been married, you have turned four simple walls into a sacred haven of warmth, laughter, and tender peace. When I walk through the door and see your smile, every weight of this world melts away.
+            </p>
+            <p>
+              On this special day, I reaffirm every vow I made to you at the altar. I promise to cherish you when the sun is shining and hold you even closer when storms arrive. I promise to encourage your dreams, wipe away any tear, and spend every remaining year ensuring you know just how treasured you are.
+            </p>
+            <p>
+              May this new year bring you an abundance of sweet serenity, radiant health, and boundless joy. You are the beating heart of our marriage, and I will love you endlessly with every breath I take.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-babypink-200/60 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2">
+            <div>
+              <p class="text-xs uppercase tracking-widest text-slate-400">Forever and unconditionally yours,</p>
+              <p class="font-script text-3xl text-slate-800">Your Husband</p>
+            </div>
+            <div class="text-xs text-sky-600 bg-skyblue-50 px-3 py-1.5 rounded-full border border-skyblue-100">
+              October 17 • Sealed With All My Love
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. REASONS WHY I ADORE MY WIFE ==================== -->
+  <section class="relative z-10 py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-widest font-semibold text-sky-500">Everything That Makes You My World</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-800 mt-1">Reasons Why I Adore My Wife</h2>
+        <p class="text-slate-500 text-sm max-w-md mx-auto mt-2">Just a few reasons why I fall deeper in love with you with every single sunrise.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="frosted-glass rounded-2xl p-6 hover:-translate-y-1.5 transition-all duration-300 border border-babypink-100 group">
+          <div class="w-12 h-12 rounded-xl bg-babypink-100 text-babypink-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            🌸
+          </div>
+          <h3 class="font-serif font-bold text-xl text-slate-800 mb-2">Your Radiant Laughter</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            The gentle music of your laugh that echoes through our home and instantly turns my hardest days into pure joy.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="frosted-glass rounded-2xl p-6 hover:-translate-y-1.5 transition-all duration-300 border border-skyblue-100 group">
+          <div class="w-12 h-12 rounded-xl bg-skyblue-100 text-skyblue-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            🏡
+          </div>
+          <h3 class="font-serif font-bold text-xl text-slate-800 mb-2">How You Built Our Home</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            You didn't just move in with me—you poured your soul, kindness, and elegance into turning a house into our warm sanctuary.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="frosted-glass rounded-2xl p-6 hover:-translate-y-1.5 transition-all duration-300 border border-babypink-100 group">
+          <div class="w-12 h-12 rounded-xl bg-babypink-100 text-babypink-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            🕊️
+          </div>
+          <h3 class="font-serif font-bold text-xl text-slate-800 mb-2">Your Pure, Tender Heart</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Your unmatched compassion and the gentle, selfless grace you shower on everyone around you. You inspire me every day.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="frosted-glass rounded-2xl p-6 hover:-translate-y-1.5 transition-all duration-300 border border-skyblue-100 group">
+          <div class="w-12 h-12 rounded-xl bg-skyblue-100 text-skyblue-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            ☕
+          </div>
+          <h3 class="font-serif font-bold text-xl text-slate-800 mb-2">Our Quiet Everyday Life</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Sharing a morning coffee, sitting beside you in comfortable silence, and holding your hand across the room.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="frosted-glass rounded-2xl p-6 hover:-translate-y-1.5 transition-all duration-300 border border-babypink-100 group">
+          <div class="w-12 h-12 rounded-xl bg-babypink-100 text-babypink-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            ✨
+          </div>
+          <h3 class="font-serif font-bold text-xl text-slate-800 mb-2">The Comfort in Your Arms</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            No matter how hectic the world gets, coming home and wrapping my arms around my wife gives me absolute peace.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="frosted-glass rounded-2xl p-6 hover:-translate-y-1.5 transition-all duration-300 border border-skyblue-100 group">
+          <div class="w-12 h-12 rounded-xl bg-skyblue-100 text-skyblue-500 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+            💍
+          </div>
+          <h3 class="font-serif font-bold text-xl text-slate-800 mb-2">Calling You 'My Wife'</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            The secret surge of pride I still feel every single time I introduce you as my wife or hear you say 'my husband'.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. VIRTUAL INTERACTIVE BIRTHDAY CAKE ==================== -->
+  <section class="relative z-10 py-20 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      
+      <div class="mb-6">
+        <span class="text-xs uppercase tracking-widest font-semibold text-skyblue-500">A Wish for My Wife</span>
+        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-slate-800 mt-1">Make a Birthday Wish, Goundoos</h2>
+        <p class="text-slate-500 text-sm mt-2">Close your eyes, make your wish as my wife, and tap the candle flame to blow it out.</p>
+      </div>
+
+      <!-- Cake Stage -->
+      <div class="frosted-glass rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-white">
+        
+        <div class="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto flex items-center justify-center cursor-pointer group" id="cakeContainer" onclick="blowCandle()">
+          
+          <svg viewBox="0 0 300 300" class="w-full h-full drop-shadow-md">
+            <!-- Plate -->
+            <ellipse cx="150" cy="260" rx="120" ry="18" fill="#e2e8f0" />
+            <ellipse cx="150" cy="256" rx="112" ry="15" fill="#ffffff" />
+            
+            <!-- Bottom Cake Tier (Baby Pink) -->
+            <rect x="50" y="180" width="200" height="70" rx="12" fill="#ffd1dc" />
+            <path d="M50 200 Q 75 215, 100 200 T 150 200 T 200 200 T 250 200 L 250 180 L 50 180 Z" fill="#ffe4ec" />
+            <ellipse cx="75" cy="225" rx="4" ry="4" fill="#38bdf8" />
+            <ellipse cx="120" cy="235" rx="4" ry="4" fill="#f48fb1" />
+            <ellipse cx="180" cy="230" rx="4" ry="4" fill="#38bdf8" />
+            <ellipse cx="225" cy="225" rx="4" ry="4" fill="#f48fb1" />
+
+            <!-- Top Cake Tier (Sky Blue) -->
+            <rect x="80" y="125" width="140" height="60" rx="10" fill="#bae6fd" />
+            <path d="M80 140 Q 97 152, 115 140 T 150 140 T 185 140 T 220 140 L 220 125 L 80 125 Z" fill="#e0f2fe" />
+            <ellipse cx="105" cy="160" rx="3.5" ry="3.5" fill="#ec4899" />
+            <ellipse cx="150" cy="165" rx="3.5" ry="3.5" fill="#ec4899" />
+            <ellipse cx="195" cy="160" rx="3.5" ry="3.5" fill="#ec4899" />
+
+            <!-- Cream Dollops -->
+            <circle cx="95" cy="123" r="8" fill="#ffffff" />
+            <circle cx="122" cy="121" r="8" fill="#ffffff" />
+            <circle cx="150" cy="120" r="9" fill="#ffffff" />
+            <circle cx="178" cy="121" r="8" fill="#ffffff" />
+            <circle cx="205" cy="123" r="8" fill="#ffffff" />
+
+            <!-- Candle Stick -->
+            <rect x="146" y="70" width="8" height="50" rx="3" fill="#ffffff" stroke="#f48fb1" stroke-width="1.5" />
+            <line x1="150" y1="70" x2="150" y2="60" stroke="#475569" stroke-width="2" />
+            
+            <!-- Candle Flame -->
+            <g id="candleFlame" class="animate-flicker" style="transform-origin: 150px 60px;">
+              <ellipse cx="150" cy="46" rx="9" ry="16" fill="#fde047" opacity="0.9" />
+              <ellipse cx="150" cy="48" rx="4.5" ry="10" fill="#f97316" />
+              <ellipse cx="150" cy="52" rx="2.5" ry="5" fill="#ffffff" />
+            </g>
+
+            <!-- Smoke puff on extinguish -->
+            <g id="candleSmoke" class="hidden" style="opacity: 0;">
+              <path d="M150 55 Q 140 40, 155 25 T 145 0" stroke="#cbd5e1" stroke-width="3" fill="none" stroke-linecap="round" />
+            </g>
+          </svg>
+
+          <!-- Floating Prompt Badge -->
+          <div id="cakePromptBadge" class="absolute -bottom-2 bg-white/95 backdrop-blur-sm border border-babypink-300 text-xs px-4 py-1.5 rounded-full shadow-md text-slate-700 font-medium group-hover:scale-105 transition-transform flex items-center gap-1.5">
+            <span>✨ Tap flame to blow out &amp; make your wish</span>
+          </div>
+        </div>
+
+        <!-- Revealed Secret Birthday Message From Husband -->
+        <div id="revealedSecretMsg" class="mt-8 pt-6 border-t border-slate-100 hidden opacity-0 transition-all duration-700">
+          <div class="p-6 rounded-2xl bg-gradient-to-r from-babypink-50 via-white to-skyblue-50 border border-babypink-200 shadow-inner">
+            <span class="text-3xl">🎉🎂🤍</span>
+            <h3 class="font-script text-4xl text-babypink-400 my-2">Your Husband's Lifelong Blessing</h3>
+            <p class="font-serif italic text-xl sm:text-2xl text-slate-800 leading-relaxed">
+              “May all your sweetest dreams come true, my love. Happy Birthday, Goundoos!”
+            </p>
+            <p class="text-xs uppercase tracking-widest text-sky-600 font-semibold mt-3">From your devoted husband — every prayer of mine is for your happiness.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. FOOTER ==================== -->
+  <footer class="relative z-10 py-12 px-4 text-center border-t border-babypink-100 bg-white/50 backdrop-blur-md">
+    <div class="max-w-md mx-auto">
+      <p class="font-script text-4xl text-babypink-400 mb-1">Forever yours,</p>
+      <p class="font-serif italic text-slate-800 text-xl font-semibold">Your husband, always by your side.</p>
+      
+      <div class="flex items-center justify-center gap-3 my-4 text-babypink-300 text-sm">
+        <span>♡</span>
+        <span>•</span>
+        <span>Goundoos &amp; Her Husband</span>
+        <span>•</span>
+        <span>♡</span>
+      </div>
+
+      <p class="text-[11px] uppercase tracking-widest text-slate-400">
+        October 17, 2002 — Eternity • Our First Birthday Celebrated as Husband and Wife
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    /* 1. Ambient Background Canvas: Baby Pink & Sky Blue Particles */
+    const canvas = document.getElementById('ambientCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class AmbientParticle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = height + Math.random() * 50;
+        this.size = Math.random() * 7 + 5;
+        this.speedY = Math.random() * 0.6 + 0.3;
+        this.speedX = (Math.random() - 0.5) * 0.35;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.02;
+        this.opacity = Math.random() * 0.45 + 0.2;
+        
+        const types = ['heart', 'petal', 'sparkle'];
+        this.type = types[Math.floor(Math.random() * types.length)];
+
+        const colors = [
+          'rgba(255, 209, 220, ', // baby pink
+          'rgba(244, 143, 177, ', // rose pink
+          'rgba(186, 230, 253, ', // sky blue
+          'rgba(125, 211, 252, ', // light sky blue
+          'rgba(255, 240, 245, '  // pale blush
+        ];
+        this.baseColor = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX + Math.sin(this.y * 0.01) * 0.2;
+        this.rotation += this.rotSpeed;
+
+        if (this.y < -30 || this.x < -30 || this.x > width + 30) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillStyle = this.baseColor + this.opacity + ')';
+
+        if (this.type === 'heart') {
+          const s = this.size * 0.5;
+          ctx.beginPath();
+          ctx.moveTo(0, s * 0.3);
+          ctx.bezierCurveTo(-s, -s * 0.7, -s * 1.5, s * 0.3, 0, s * 1.5);
+          ctx.bezierCurveTo(s * 1.5, s * 0.3, s, -s * 0.7, 0, s * 0.3);
+          ctx.fill();
+        } else if (this.type === 'petal') {
+          ctx.beginPath();
+          ctx.ellipse(0, 0, this.size * 0.4, this.size * 0.8, Math.PI / 6, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          const s = this.size * 0.55;
+          ctx.beginPath();
+          for (let i = 0; i < 4; i++) {
+            ctx.lineTo(Math.cos((i * Math.PI) / 2) * s, Math.sin((i * Math.PI) / 2) * s);
+            ctx.lineTo(Math.cos((i * Math.PI) / 2 + Math.PI / 4) * (s * 0.3), Math.sin((i * Math.PI) / 2 + Math.PI / 4) * (s * 0.3));
+          }
+          ctx.closePath();
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+    }
+
+    const particles = [];
+    for (let i = 0; i < 35; i++) {
+      const p = new AmbientParticle();
+      p.y = Math.random() * height;
+      particles.push(p);
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      for (let p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    requestAnimationFrame(animateParticles);
+
+    /* 2. Virtual Birthday Cake & Candle Interaction */
+    let candleBlown = false;
+
+    function blowCandle() {
+      if (candleBlown) return;
+      candleBlown = true;
+
+      const flame = document.getElementById('candleFlame');
+      const smoke = document.getElementById('candleSmoke');
+      const badge = document.getElementById('cakePromptBadge');
+      const secretMsg = document.getElementById('revealedSecretMsg');
+
+      // Remove CSS flicker animation so inline transition takes full effect
+      flame.classList.remove('animate-flicker');
+      flame.style.transition = 'all 0.35s ease';
+      flame.style.opacity = '0';
+      flame.style.transform = 'scale(0.1)';
+
+      setTimeout(() => {
+        flame.style.display = 'none';
+        smoke.classList.remove('hidden');
+        smoke.classList.add('smoke-puff');
+      }, 120);
+
+      badge.innerHTML = '❤️ Wish Sealed in Your Husband\'s Heart!';
+      badge.classList.remove('text-slate-700');
+      badge.classList.add('text-babypink-500', 'bg-babypink-50', 'border-babypink-300');
+
+      playChimeNotes();
+
+      if (typeof confetti === 'function') {
+        const colors = ['#ffd1dc', '#bae6fd', '#f48fb1', '#7dd3fc', '#ffffff', '#ffe4ec'];
+
+        confetti({
+          particleCount: 90,
+          spread: 80,
+          origin: { y: 0.65 },
+          colors: colors,
+          ticks: 240,
+          gravity: 0.8
+        });
+
+        setTimeout(() => {
+          confetti({
+            particleCount: 45,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors
+          });
+          confetti({
+            particleCount: 45,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors
+          });
+        }, 220);
+      }
+
+      secretMsg.classList.remove('hidden');
+      setTimeout(() => {
+        secretMsg.style.opacity = '1';
+        secretMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 400);
+    }
+
+    /* 3. Gentle Audio Synthesizer (Music Box Chimes) */
+    let audioCtx = null;
+    let isMelodyPlaying = false;
+    let melodyTimer = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playNote(freq, delay = 0, duration = 1.5) {
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime + delay;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.18, now + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + duration + 0.1);
+      } catch (err) {
+        console.warn('Audio play restricted:', err);
+      }
+    }
+
+    function playChimeNotes() {
+      const notes = [523.25, 659.25, 783.99, 1046.50];
+      notes.forEach((freq, idx) => {
+        playNote(freq, idx * 0.14, 2.0);
+      });
+    }
+
+    const serenadeTones = [
+      523.25, 659.25, 783.99, 1046.50,
+      440.00, 554.37, 659.25, 880.00,
+      349.23, 440.00, 523.25, 698.46,
+      392.00, 493.88, 587.33, 783.99
+    ];
+
+    function toggleAudio() {
+      const label = document.getElementById('audioLabel');
+      const icon = document.getElementById('audioIcon');
+
+      if (!isMelodyPlaying) {
+        getAudioContext();
+        isMelodyPlaying = true;
+        label.innerText = 'Playing For My Wife';
+        icon.innerText = '💖';
+
+        let idx = 0;
+        function step() {
+          if (!isMelodyPlaying) return;
+          playNote(serenadeTones[idx], 0, 1.4);
+          idx = (idx + 1) % serenadeTones.length;
+          melodyTimer = setTimeout(step, 650);
+        }
+        step();
+      } else {
+        isMelodyPlaying = false;
+        clearTimeout(melodyTimer);
+        label.innerText = 'Music Box For My Wife';
+        icon.innerText = '🎵';
+      }
+    }
+
+    document.getElementById('audioToggleBtn').addEventListener('click', toggleAudio);
+  </script>
+</body>
+</html>
